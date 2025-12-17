@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
-import './globals.css'
+import '@/assets/styles/main.scss'
 
 export const metadata: Metadata = {
   title: 'Employee Dashboard',
@@ -18,8 +18,8 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${roboto.variable} antialiased`}>
-      <body className={'bg-white dark:bg-gray-900'}>{children}</body>
+    <html lang="en" className={`${roboto.variable} antialiased min-h-screen`}>
+      <body className="bg-white">{children}</body>
     </html>
   )
 }

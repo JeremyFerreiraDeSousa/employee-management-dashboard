@@ -1,0 +1,6 @@
+@use 'base/fonts' as *;
+@use "tailwindcss" as *;
+
+body {
+    @apply font-sans text-base text-stone-800;
+}
