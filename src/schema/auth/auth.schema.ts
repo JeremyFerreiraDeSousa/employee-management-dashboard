@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/
 
-export const loginSchema = z.object({
+export const signInSchema = z.object({
   email: z.email('Invalid email address'),
   password: z
     .string()
@@ -13,7 +13,7 @@ export const loginSchema = z.object({
     )
 })
 
-export const registerSchema = loginSchema
+export const signUpSchema = signInSchema
   .extend({
     confirmPassword: z.string()
   })
@@ -22,5 +22,5 @@ export const registerSchema = loginSchema
     message: 'Passwords must the same'
   })
 
-export type LoginFormValues = z.infer<typeof loginSchema>
-export type RegisterFormValues = z.infer<typeof registerSchema>
+export type LoginFormValues = z.infer<typeof signInSchema>
+export type RegisterFormValues = z.infer<typeof signUpSchema>
